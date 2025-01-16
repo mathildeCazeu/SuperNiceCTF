@@ -7,10 +7,11 @@ Ceci est un exemple de diagramme de flux créé avec Mermaid.
 graph TD;
     A[Accueil] --> B[Salle de la clé];
     B --> C[Bibliotheque];
+     C --> G[Salle de l'oeil];
+    C --> H[Accueil bis]
+    H --> B
     B --> D[Salle du mot de passe];
     B --> E[Salle du meep];
     B --> F[Salle des liens];
 
-    C --> G[Salle de l'oeil];
-    C --> H[Accueil bis]
-    H --> B
+   
