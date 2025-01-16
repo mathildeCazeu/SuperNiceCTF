@@ -15,4 +15,4 @@ graph TD;
     C --> H[Accueil bis]
     H --> B
 
-    F --> I[Un lien]
+    F --> I[Un lien avec une clé]
