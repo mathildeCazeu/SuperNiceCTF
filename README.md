@@ -5,8 +5,8 @@ Ceci est un exemple de diagramme de flux créé avec Mermaid.
 
 ```mermaid
 graph TD;
-    A[Accueil] --> B;
-    B -->|Yes| C[Do something];
-    B -->|No| D[Do something else];
-    C --> E[End];
-    D --> E;
+    A[Accueil] --> B[Salle de la clé];
+    B --> C[Bibliotheque];
+    B --> D[Salle du mot de passe];
+    B --> E[Salle du meep];
+    B --> F[Salle des liens];
