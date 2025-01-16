@@ -8,11 +8,11 @@ graph TD;
     A[Accueil] --> B[Salle de la clé];
     B --> C[Bibliotheque];
     B --> D[Salle du mot de passe];
-    B --> E[Salle du meep];
+    B --> E[Salle du meep*];
     B --> F[Salle des liens];
 
-    C --> G[Salle de l'oeil];
-    C --> H[Accueil bis]
+    C --> G[Salle de l'oeil*];
+    C --> H[Accueil bis*]
     H --> B
 
-    F --> I[Un lien avec une clé]
+    F --> I[Un lien avec une clé*]
