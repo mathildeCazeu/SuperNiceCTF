@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sixième sens</title>
+    <style>
+        body {
+            background-color: #fff; /* Fond noir */
+            color: #fff; /* Texte blanc */
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative; /* Pour positionner le texte caché */
+            overflow: hidden; /* Pour éviter les débordements */
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 80vh;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.5em;
+        }
+
+        .hidden-text {
+            position: absolute;
+            color: #fff; /* Texte blanc */
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <img src="assets/images/oeil.gif" alt="Faut regarder partout">
+    <p>Regardez bien partout...</p>
+
+    <p class="hidden-text" id="hiddenText">1- 7x9F</p>
+
+    <script>
+        function placeHiddenText() {
+            const hiddenText = document.getElementById('hiddenText');
+
+            const x = Math.random() * (window.innerWidth - 200);
+            const y = Math.random() * (window.innerHeight - 50);
+
+            hiddenText.style.left = `${x}px`;
+            hiddenText.style.top = `${y}px`;
+        }
+
+        window.onload = placeHiddenText;
+    </script>
+</body>
+</html>

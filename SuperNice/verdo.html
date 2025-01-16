@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hola</title>
+    <link id="hidden-link" rel="hidden" href="pasdecle.html">
+    <style>
+        body {
+            background-color: #FFA500;
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .hidden {
+            display: none;
+        }
+        .success-link {
+            color: #8a2be2; /* Couleur du lien */
+            text-decoration: none; /* Pas de soulignement */
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .success-link:hover {
+            text-decoration: underline; /* Soulignement au survol */
+        }
+    </style>
+</head>
+<body>
+    <div id="password-container" class="password-container">
+        <h1>Accès Protégé</h1>
+        <p>Veuillez entrer le mot de passe pour accéder :</p>
+        <input type="password" class="password-input" id="password" placeholder="Mot de passe">
+        <button class="submit-button" onclick="checkPassword()">Valider</button>
+        <p class="message" id="password-message"></p>
+    </div>
+
+    <div id="success-message" class="hidden">
+        <h1>Accès Autorisé !</h1>
+        <p>Bienvenue, vous avez entré le bon mot de passe. 🎉</p>
+        <div id="dynamic-link-container"></div>
+    </div>
+
+    <script>
+        // Mot de passe correct (en dur)
+        const correctPassword = "monmotdepasse";
+
+        // Fonction pour vérifier le mot de passe
+        function checkPassword() {
+            const userPassword = document.getElementById('password').value;
+            const passwordMessage = document.getElementById('password-message');
+            const passwordContainer = document.getElementById('password-container');
+            const successMessage = document.getElementById('success-message');
+            const dynamicLinkContainer = document.getElementById('dynamic-link-container');
+
+            if (userPassword === correctPassword) {
+                passwordMessage.textContent = "Mot de passe correct !";
+                passwordMessage.style.color = "#00ff00"; // Vert pour indiquer le succès
+                passwordContainer.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+
+                // Récupérer le lien caché dans le head
+                const hiddenLink = document.getElementById('hidden-link').href;
+
+                // Afficher le lien dynamiquement
+                dynamicLinkContainer.innerHTML = `
+                    <a href="${hiddenLink}" class="success-link" target="_blank">Accéder à la page secrète</a>
+                `;
+            } else {
+                passwordMessage.textContent = "Mot de passe incorrect, essayez encore !";
+                passwordMessage.style.color = "#ff0000"; // Rouge pour indiquer l'échec
+            }
+        }
+    </script>
+</body>
+</html>

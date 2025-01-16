@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #8a2be2;
+        }
+
+        .clickable-square {
+            position: absolute;
+            width: 100px; /* Taille des carrés */
+            height: 100px;
+            background-color: #8a2be2; /* Couleur des carrés */
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2em;
+            color: #fff;
+            border-radius: 10px; /* Coins arrondis */
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .clickable-square:hover {
+            transform: scale(1.1); /* Effet de zoom au survol */
+            background-color: #9400d3; /* Changement de couleur au survol */
+        }
+
+        .key-form {
+            margin-top: 20px;
+        }
+
+        .key-form input {
+            padding: 10px;
+            font-size: 1em;
+            border: 2px solid #8a2be2;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .key-form button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #8a2be2;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .key-form button:hover {
+            background-color: #9400d3;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #8a2be2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vous êtes toujours là ?</h1>
+    <p>Cool, vous allez pouvoir trouver la clé.</p>
+    <p>Elle a été découpée en 5 morceaux et éparpilée dans tout le site :)</p>
+
+    <!-- Formulaire pour saisir la clé -->
+    <form class="key-form" onsubmit="validateKey(event)">
+        <input type="text" id="keyInput" placeholder="Entrez la clé" required>
+        <button type="submit">Valider</button>
+    </form>
+
+    <!-- Message pour afficher le résultat de la validation -->
+    <p class="message" id="message"></p>
+
+    <script src="scripts/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Félicitations !</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: background-color 0.5s ease;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.5em;
+            color: #8a2be2;
+        }
+
+        .reward-text {
+            font-size: 2em;
+            font-weight: bold;
+            cursor: pointer;
+            animation: rainbowText 2s infinite;
+        }
+
+        audio {
+            margin-top: 20px;
+            display: none; /* Cache le lecteur audio */
+        }
+
+        /* Animation pour le texte arc-en-ciel */
+        @keyframes rainbowText {
+            0% { color: #ff0000; } /* Rouge */
+            14% { color: #ff7f00; } /* Orange */
+            28% { color: #ffff00; } /* Jaune */
+            42% { color: #00ff00; } /* Vert */
+            57% { color: #0000ff; } /* Bleu */
+            71% { color: #4b0082; } /* Indigo */
+            85% { color: #9400d3; } /* Violet */
+            100% { color: #ff0000; } /* Retour au rouge */
+        }
+
+        /* Animation pour le fond arc-en-ciel */
+        @keyframes rainbowBackground {
+            0% { background-color: #ff0000; } /* Rouge */
+            14% { background-color: #ff7f00; } /* Orange */
+            28% { background-color: #ffff00; } /* Jaune */
+            42% { background-color: #00ff00; } /* Vert */
+            57% { background-color: #0000ff; } /* Bleu */
+            71% { background-color: #4b0082; } /* Indigo */
+            85% { background-color: #9400d3; } /* Violet */
+            100% { background-color: #ff0000; } /* Retour au rouge */
+        }
+
+        /* Classe pour appliquer l'animation du fond */
+        .rainbow-bg {
+            animation: rainbowBackground 5s infinite;
+        }
+    </style>
+</head>
+<body>
+    <h1>Félicitations !</h1>
+    <p>GG WP!</p>
+
+    <!-- Texte pour inciter l'utilisateur à cliquer -->
+    <div class="reward-text" id="rewardText">Recevoir ma récompense</div>
+
+    <!-- Piste audio -->
+    <audio id="ggAudio">
+        <source src="assets/sounds/gg.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Forcer la lecture de l'audio au chargement de la page
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById('ggAudio');
+            audio.play().catch(error => {
+                console.error("La lecture automatique a été bloquée :", error);
+            });
+        });
+
+        // Gérer le clic sur le texte "Recevoir ma récompense"
+        const rewardText = document.getElementById('rewardText');
+        const body = document.body;
+
+        rewardText.addEventListener('click', () => {
+            // Lancer la lecture de l'audio
+            const audio = document.getElementById('ggAudio');
+            audio.play();
+
+            // Appliquer l'animation du fond arc-en-ciel
+            body.classList.add('rainbow-bg');
+
+            // Masquer le texte après le clic
+            rewardText.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

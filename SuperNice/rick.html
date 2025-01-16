@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vous vous êtes fait MEEP</title>
+    <style>
+        /* Animation arc-en-ciel pour le fond */
+        @keyframes rainbowBackground {
+            0% { background-color: #ff0000; } /* Rouge */
+            14% { background-color: #ff7f00; } /* Orange */
+            28% { background-color: #ffff00; } /* Jaune */
+            42% { background-color: #00ff00; } /* Vert */
+            57% { background-color: #0000ff; } /* Bleu */
+            71% { background-color: #4b0082; } /* Indigo */
+            85% { background-color: #9400d3; } /* Violet */
+            100% { background-color: #ff0000; } /* Retour au rouge */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            animation: rainbowBackground 5s linear infinite; /* Animation du fond */
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            position: relative; /* Pour positionner le lien et le texte */
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 90vw; /* L'image occupe 90% de la largeur de l'écran */
+            max-height: 90vh; /* L'image occupe 90% de la hauteur de l'écran */
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        img:hover {
+            transform: scale(1.05); /* Effet de zoom au survol */
+        }
+
+        /* Style pour le lien de retour */
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        .back-link:hover {
+            color: #8a2be2; /* Changement de couleur au survol */
+        }
+
+        /* Style pour le texte secret */
+        .secret-text {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <!-- Lien de retour vers index.html -->
+    <a href="index.html" class="back-link">Retour à l'accueil</a>
+
+    <div>
+        <!-- Image cliquable -->
+        <img src="assets/images/blue-pikmin.png" alt="mip" id="rickrollImage">
+    </div>
+
+    <script>
+        // Compteur de clics
+        let clickCount = 0;
+
+        // Fonction pour jouer un son au clic sur l'image
+        function playSound() {
+            const audio = new Audio('assets/sounds/meep.mp3');
+            audio.play();
+
+            // Incrémenter le compteur de clics
+            clickCount++;
+
+            // Créer et afficher le texte après 15 clics
+            if (clickCount === 15) {
+                const secretText = document.createElement('p');
+                secretText.className = '4- 1pL2';
+                secretText.textContent = 'MEEP !';
+                document.body.appendChild(secretText);
+            }
+        }
+
+        // Ajouter un écouteur d'événement sur l'image
+        document.getElementById('rickrollImage').addEventListener('click', playSound);
+    </script>
+</body>
+</html>
