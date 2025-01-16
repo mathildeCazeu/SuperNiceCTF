@@ -5,7 +5,7 @@ Ceci est un exemple de diagramme de flux créé avec Mermaid.
 
 ```mermaid
 graph TD;
-    A[Start] --> B{Decision?};
+    A[Accueil] --> B;
     B -->|Yes| C[Do something];
     B -->|No| D[Do something else];
     C --> E[End];
