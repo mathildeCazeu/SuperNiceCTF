@@ -10,3 +10,7 @@ graph TD;
     B --> D[Salle du mot de passe];
     B --> E[Salle du meep];
     B --> F[Salle des liens];
+
+    C --> G[Salle de l'oeil];
+    C --> H[Accueil bis]
+    H --> B
